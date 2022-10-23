@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 6959451597634623136}
   - component: {fileID: 6959451597634623167}
   - component: {fileID: 913141555}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ziggy
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ Transform:
   m_GameObject: {fileID: 6959451597634623166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.199, y: -3.31, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6959451596694639086}
@@ -209,9 +209,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6959451597634623166}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5fc43f0c4b413534ba12c51c0e5e5f6f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 58094ac4c3822f44b950d06f75085503, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -259,10 +259,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -997830671
+  m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 962367326, guid: 9251de0ca5f32ac408d5770a2cd24e99, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -272,7 +272,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!70 &6959451597634623137
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -286,9 +286,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11870701, y: -0.22286429}
-  m_Size: {x: 0.8352954, y: 0.5642715}
-  m_Direction: 1
+  m_Offset: {x: -0.005680084, y: -0.0494986}
+  m_Size: {x: 0.13941512, y: 0.22358875}
+  m_Direction: 0
 --- !u!58 &6959451597634623136
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -302,9 +302,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12046865, y: -0.28507718}
+  m_Offset: {x: -0.012983322, y: 0.008861761}
   serializedVersion: 2
-  m_Radius: 0.16896817
+  m_Radius: 0.08265146
 --- !u!50 &6959451597634623167
 Rigidbody2D:
   serializedVersion: 4
@@ -346,7 +346,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.7481327
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
