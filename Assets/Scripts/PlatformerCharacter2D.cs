@@ -72,7 +72,7 @@ namespace UnityStandardAssets._2D
             m_Anim.SetFloat("yPos", m_Rigidbody2D.position.y);
 
             // Set whether or not the character is crouching in the animator
-            m_Anim.SetBool("Shield", shield);
+            //m_Anim.SetBool("Shield", shield);
         
             if(shield)
             {
