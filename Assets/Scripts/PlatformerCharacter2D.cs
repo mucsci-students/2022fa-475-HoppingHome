@@ -83,14 +83,15 @@ namespace UnityStandardAssets._2D
                 m_Rigidbody2D.mass = normalMass;
             }
 
+            Debug.Log(m_Grounded);
 
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
             {
-                if(shield){
-                    move = (shield ? move * m_CrouchSpeed: move);
-                    m_Anim.SetBool("Ground",false);
-                }
+                //if(shield){
+                    //move = (shield ? move * m_CrouchSpeed: move);
+                    //m_Anim.SetBool("Ground",false);
+                //}
                 
                 // The Speed animator parameter is set to the absolute value of the horizontal input.
                 m_Anim.SetFloat("Speed", Mathf.Abs(move));
@@ -110,9 +111,9 @@ namespace UnityStandardAssets._2D
                 }
 
             }
-            
+
             /**** Working static jump height (change jump force if not working)****/
-            
+
             // if (m_Grounded && jump && m_Anim.GetBool("Ground"))
             // {
             //     // Add a vertical force to the player.
@@ -120,9 +121,10 @@ namespace UnityStandardAssets._2D
             //     m_Anim.SetBool("Ground", false);
             //     m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             // }
-        
+
             /**** Dynamic jump height, can & will make better ****/
-            if (m_Grounded && jump && m_Anim.GetBool("Ground"))
+            //if (m_Grounded && jump && m_Anim.GetBool("Ground"))
+            if (m_Grounded && jump)
             {
                 // While in air, change states
                 m_Grounded = false;
