@@ -1,6 +1,5 @@
 using System;
 using UnityEngine; 
-// using UnityEngine.InputSystem;
 
 namespace UnityStandardAssets._2D
 {
@@ -18,19 +17,19 @@ namespace UnityStandardAssets._2D
         private Transform m_RightCheck;         // A position marking where to check for wall jumps
         private Transform m_LeftCheck;          // A position marking where to check for wall jumps
 
-        const float k_GroundedRadius = .2f;     // Radius of the overlap circle to determine if grounded
-        const float k_CeilingRadius = .01f;     // Radius of the overlap circle to determine if the player can stand up
-        const float m_CrouchSpeed = 0f;         // Movement speed when crouched
+        private const float k_GroundedRadius = .2f;     // Radius of the overlap circle to determine if grounded
+        private const float k_CeilingRadius = .01f;     // Radius of the overlap circle to determine if the player can stand up
+        private const float m_CrouchSpeed = 0f;         // Movement speed when crouched
         private bool m_Grounded;                // Whether or not the player is grounded.
         private bool m_FacingRight = true;      // For determining which way the player is currently facing.
         private bool isJumping;                 // Whether or not the player is in the air with jumpHoldDuration.
 
         public float jumpHoldDuration = 0.25f;  // Max duration to hold space and gain velocity.
-        public float jumpHoldCounter;           // Control for jumpHoldDuration
-        private float normalMass = 1.0f;
-        private float shieldDummyThickFatmAss = 1000.0f;
+        private float jumpHoldCounter;          // Control for jumpHoldDuration
+        //private float normalMass = 1.0f;
+        //private float shieldDummyThickFatmAss = 1000.0f;
 
-        public Transform m_spawn;
+        public Transform m_spawn;               // For player spawns and checkpoints
 
         private void Awake()
         {
@@ -45,6 +44,7 @@ namespace UnityStandardAssets._2D
 
         private void Start()
         {
+            // Set up player start
             m_Rigidbody2D.position = m_spawn.position;
         }
 
@@ -57,23 +57,40 @@ namespace UnityStandardAssets._2D
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i].gameObject != gameObject)
+                {
                     m_Grounded = true;
+                    break;
+                }
             }
 
-            // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
-            colliders = Physics2D.OverlapCircleAll(m_RightCheck.position, k_GroundedRadius, m_WhatIsGround);
-            for (int i = 0; i < colliders.Length; i++)
+            // Right Wall Check
+            if (!m_Grounded)
             {
-                if (colliders[i].gameObject != gameObject)
-                    m_Grounded = true;
+                // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
+                colliders = Physics2D.OverlapCircleAll(m_RightCheck.position, k_GroundedRadius, m_WhatIsGround);
+                for (int i = 0; i < colliders.Length; i++)
+                {
+                    if (colliders[i].gameObject != gameObject)
+                    {
+                        m_Grounded = true;
+                        break;
+                    }
+                }
             }
 
-            // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
-            colliders = Physics2D.OverlapCircleAll(m_LeftCheck.position, k_GroundedRadius, m_WhatIsGround);
-            for (int i = 0; i < colliders.Length; i++)
+            // Left wall check
+            if (!m_Grounded)
             {
-                if (colliders[i].gameObject != gameObject)
-                    m_Grounded = true;
+                // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
+                colliders = Physics2D.OverlapCircleAll(m_LeftCheck.position, k_GroundedRadius, m_WhatIsGround);
+                for (int i = 0; i < colliders.Length; i++)
+                {
+                    if (colliders[i].gameObject != gameObject)
+                    {
+                        m_Grounded = true;
+                        break;
+                    }
+                }
             }
             
             // Set Ground for animation
@@ -101,14 +118,14 @@ namespace UnityStandardAssets._2D
             // Set whether or not the character is crouching in the animator
             //m_Anim.SetBool("Shield", shield);
         
-            if(shield)
-            {
-                m_Rigidbody2D.mass = shieldDummyThickFatmAss;
-            }
-            if(!shield)
-            {
-                m_Rigidbody2D.mass = normalMass;
-            }
+            // if(shield)
+            // {
+            //     m_Rigidbody2D.mass = shieldDummyThickFatmAss;
+            // }
+            // if(!shield)
+            // {
+            //     m_Rigidbody2D.mass = normalMass;
+            // }
 
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
@@ -180,7 +197,7 @@ namespace UnityStandardAssets._2D
                 }
             }
             // No more jumping for you x2.
-            if(!jump_2) 
+            if (!jump_2) 
             { 
                 isJumping = false; 
                 jumpHoldCounter = 0;
@@ -199,9 +216,10 @@ namespace UnityStandardAssets._2D
             transform.localScale = theScale;
         }
 
+        // Fires a bullet at a given speed, called from character inputs script
         public void fire(GameObject bullet, Vector2 bulletSpeed)
         {
-            Vector3 offsetRight = new Vector3 (0f, -0.3f, 0.0f);
+            Vector3 offsetRight = new Vector3 (-0.3f, -0.3f, 0.0f);
             Vector3 offsetLeft = new Vector3 (0f, -0.3f, 0.0f);
 
             if (m_FacingRight)
@@ -209,8 +227,7 @@ namespace UnityStandardAssets._2D
                 GameObject temp = Instantiate(bullet, m_Rigidbody2D.transform.localPosition + offsetRight, Quaternion.identity);
                 Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
                 rb.velocity = bulletSpeed;
-            } else
-            {
+            } else {
                 GameObject temp = Instantiate(bullet, m_Rigidbody2D.transform.localPosition + offsetLeft, Quaternion.identity);
                 Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
                 rb.velocity = bulletSpeed * -1f;
