@@ -713,6 +713,7 @@ MonoBehaviour:
   lookAheadFactor: 3
   lookAheadReturnSpeed: 0.5
   lookAheadMoveThreshold: 0.1
+  yLockBottom: -5
 --- !u!1 &939607860
 GameObject:
   m_ObjectHideFlags: 0
