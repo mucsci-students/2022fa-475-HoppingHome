@@ -15,6 +15,8 @@ namespace UnityStandardAssets._2D
         private Rigidbody2D m_Rigidbody2D;      // Reference to the player's Rigidbody.
         private Transform m_GroundCheck;        // A position marking where to check if the player is grounded.
         private Transform m_CeilingCheck;       // A position marking where to check for ceilings
+        private Transform m_RightCheck;         // A position marking where to check for wall jumps
+        private Transform m_LeftCheck;          // A position marking where to check for wall jumps
 
         const float k_GroundedRadius = .2f;     // Radius of the overlap circle to determine if grounded
         const float k_CeilingRadius = .01f;     // Radius of the overlap circle to determine if the player can stand up
@@ -35,6 +37,8 @@ namespace UnityStandardAssets._2D
             // Setting up references.
             m_GroundCheck = transform.Find("GroundCheck");
             m_CeilingCheck = transform.Find("CeilingCheck");
+            m_RightCheck = transform.Find("OffSetRight");
+            m_LeftCheck = transform.Find("OffSetLeft");
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
         }
@@ -50,6 +54,22 @@ namespace UnityStandardAssets._2D
 
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
             Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].gameObject != gameObject)
+                    m_Grounded = true;
+            }
+
+            // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
+            colliders = Physics2D.OverlapCircleAll(m_RightCheck.position, k_GroundedRadius, m_WhatIsGround);
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].gameObject != gameObject)
+                    m_Grounded = true;
+            }
+
+            // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
+            colliders = Physics2D.OverlapCircleAll(m_LeftCheck.position, k_GroundedRadius, m_WhatIsGround);
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i].gameObject != gameObject)
