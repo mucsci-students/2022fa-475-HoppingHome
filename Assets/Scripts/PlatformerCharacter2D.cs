@@ -173,5 +173,21 @@ namespace UnityStandardAssets._2D
             theScale.x *= -1;
             transform.localScale = theScale;
         }
+
+        public void fire(GameObject bullet, Vector2 bulletSpeed)
+        {
+            Vector3 offset = new Vector3 (0.5f, 0.0f, 0.0f);
+            if (m_FacingRight)
+            {
+                GameObject temp = Instantiate(bullet, m_Rigidbody2D.transform.localPosition + offset, Quaternion.identity);
+                Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
+                rb.velocity = bulletSpeed;
+            } else
+            {
+                GameObject temp = Instantiate(bullet, m_Rigidbody2D.transform.localPosition - offset, Quaternion.identity);
+                Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
+                rb.velocity = bulletSpeed * -1f;
+            }
+        }
     }
 }

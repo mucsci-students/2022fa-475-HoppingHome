@@ -11,6 +11,14 @@ namespace UnityStandardAssets._2D
         public AudioSource source;
         public AudioClip heal;
 
+        //Bullet code
+        public float bulletCooldown = 0.25f;
+        private float timer = 0f;
+        public GameObject bullet;
+        public Vector2 bulletSpeed = new Vector2(10f, 0f);
+
+
+
         private void Awake()
         {
             m_Character = GetComponent<PlatformerCharacter2D>();
@@ -28,6 +36,15 @@ namespace UnityStandardAssets._2D
                 // m_Jump_button DURATION jump is pressed
                 m_Jump_button = Input.GetButton("Jump");
             }
+
+            //Shoot
+            if (Input.GetButtonDown("Fire1") && timer > bulletCooldown)
+            {
+                m_Character.fire(bullet, bulletSpeed);
+                timer = 0f;
+            }
+
+            timer += Time.deltaTime;
         }
 
         private void FixedUpdate()
