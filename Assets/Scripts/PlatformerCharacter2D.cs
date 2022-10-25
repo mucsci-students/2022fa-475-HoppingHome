@@ -181,7 +181,7 @@ namespace UnityStandardAssets._2D
 
         public void fire(GameObject bullet, Vector2 bulletSpeed)
         {
-            Vector3 offset = new Vector3 (0.5f, 0.0f, 0.0f);
+            Vector3 offset = new Vector3 (0.5f,-0.3f, 0.0f);
             if (m_FacingRight)
             {
                 GameObject temp = Instantiate(bullet, m_Rigidbody2D.transform.localPosition + offset, Quaternion.identity);
@@ -193,6 +193,7 @@ namespace UnityStandardAssets._2D
                 Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
                 rb.velocity = bulletSpeed * -1f;
             }
+            m_Anim.SetTrigger("Shoot");
         }
     }
 }
