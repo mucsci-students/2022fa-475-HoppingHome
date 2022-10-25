@@ -28,6 +28,8 @@ namespace UnityStandardAssets._2D
         private float normalMass = 1.0f;
         private float shieldDummyThickFatmAss = 1000.0f;
 
+        public Transform m_spawn;
+
         private void Awake()
         {
             // Setting up references.
@@ -35,6 +37,11 @@ namespace UnityStandardAssets._2D
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        }
+
+        private void Start()
+        {
+            m_Rigidbody2D.position = m_spawn.position;
         }
 
         private void FixedUpdate()
@@ -82,8 +89,6 @@ namespace UnityStandardAssets._2D
             {
                 m_Rigidbody2D.mass = normalMass;
             }
-
-            Debug.Log(m_Grounded);
 
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
