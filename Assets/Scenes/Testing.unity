@@ -270,7 +270,7 @@ MonoBehaviour:
   lookAheadFactor: 3
   lookAheadReturnSpeed: 0.5
   lookAheadMoveThreshold: 0.1
-  yLockBottom: 0
+  yLockBottom: -4
 --- !u!81 &163179427
 AudioListener:
   m_ObjectHideFlags: 0
@@ -764,8 +764,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592376541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5, z: 0}
-  m_LocalScale: {x: 50, y: 1, z: 0}
+  m_LocalPosition: {x: -15, y: -5, z: 0}
+  m_LocalScale: {x: 20, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1171,11 +1171,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5507341348315547624, guid: 5f781a5d078004e58ac843ea85ebeae4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.846431
+      value: -15.03
       objectReference: {fileID: 0}
     - target: {fileID: 5507341348315547624, guid: 5f781a5d078004e58ac843ea85ebeae4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6817021
+      value: 1.59
       objectReference: {fileID: 0}
     - target: {fileID: 5507341348315547624, guid: 5f781a5d078004e58ac843ea85ebeae4, type: 3}
       propertyPath: m_LocalPosition.z
