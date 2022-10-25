@@ -181,8 +181,8 @@ namespace UnityStandardAssets._2D
 
         public void fire(GameObject bullet, Vector2 bulletSpeed)
         {
-            Vector3 offsetRight = new Vector3 (0.5f, -0.3f, 0.0f);
-            Vector3 offsetLeft = new Vector3 (-0.5f, -0.3f, 0.0f);
+            Vector3 offsetRight = new Vector3 (0f, -0.3f, 0.0f);
+            Vector3 offsetLeft = new Vector3 (0f, -0.3f, 0.0f);
 
             if (m_FacingRight)
             {
