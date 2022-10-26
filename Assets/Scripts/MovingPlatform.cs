@@ -10,6 +10,7 @@ public class MovingPlatform : MonoBehaviour
     public Transform[] points; // array of transform points (pos where the platform needs to move)
     public PlatformerCharacter2D character; // Link to character script
     public bool playerOn = false;
+    public bool facingRight = false;
 
     private int i; // index of the array
 
@@ -36,12 +37,17 @@ public class MovingPlatform : MonoBehaviour
             theScale.x *= -1;
             transform.localScale = theScale;
             i++;
+            facingRight = !facingRight;
             if (i == points.Length)
             {
                 i = 0;
             }
             if (playerOn)
             {
+                if (character.m_FacingRight == facingRight)
+                {
+                    character.Flip();
+                }
                 character.m_FacingRight = !character.m_FacingRight;
             }
         }
@@ -53,12 +59,18 @@ public class MovingPlatform : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         collision.transform.SetParent(transform);
-        playerOn = true;
+        if (collision.gameObject.name == "Ziggy")
+        {
+            playerOn = true;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         collision.transform.SetParent(null);
-        playerOn = false;
+        if (collision.gameObject.name == "Ziggy")
+        {
+            playerOn = false;
+        } 
     }
 }

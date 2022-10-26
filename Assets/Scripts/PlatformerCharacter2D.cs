@@ -205,7 +205,7 @@ namespace UnityStandardAssets._2D
         }
 
         // Flip player depending on the way they are / should be facing.
-        private void Flip()
+        public void Flip()
         {
             // Switch the way the player is labelled as facing.
             m_FacingRight = !m_FacingRight;

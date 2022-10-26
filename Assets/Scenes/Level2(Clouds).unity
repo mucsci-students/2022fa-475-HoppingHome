@@ -1260,6 +1260,9 @@ MonoBehaviour:
   points:
   - {fileID: 528990994}
   - {fileID: 2044831642}
+  character: {fileID: 0}
+  playerOn: 0
+  facingRight: 0
 --- !u!68 &1168912377
 EdgeCollider2D:
   m_ObjectHideFlags: 0
