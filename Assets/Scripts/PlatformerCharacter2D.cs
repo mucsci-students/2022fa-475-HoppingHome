@@ -21,7 +21,7 @@ namespace UnityStandardAssets._2D
         private const float k_CeilingRadius = .01f;     // Radius of the overlap circle to determine if the player can stand up
         private const float m_CrouchSpeed = 0f;         // Movement speed when crouched
         private bool m_Grounded;                // Whether or not the player is grounded.
-        private bool m_FacingRight = true;      // For determining which way the player is currently facing.
+        public bool m_FacingRight = true;      // For determining which way the player is currently facing.
         private bool isJumping;                 // Whether or not the player is in the air with jumpHoldDuration.
 
         public float jumpHoldDuration = 0.25f;  // Max duration to hold space and gain velocity.

@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets._2D;
 
 public class MovingPlatform : MonoBehaviour
 {
     public float speed; // speed of the platform
     public int startingPoint; // starting index (pos of platform)
     public Transform[] points; // array of transform points (pos where the platform needs to move)
+    public PlatformerCharacter2D character; // Link to character script
+    public bool playerOn = false;
 
     private int i; // index of the array
 
@@ -15,6 +18,11 @@ public class MovingPlatform : MonoBehaviour
         // setting the pos of the platform to the pos of one of the
         // starting points using the index "startingPoint"
         transform.position = points[startingPoint].position;
+        // Slower, set character through editor when possible, use this as backup.
+        if (character == null)
+        {
+            character = GameObject.Find("Ziggy").GetComponent<PlatformerCharacter2D>();
+        }
     }
 
 
@@ -32,6 +40,10 @@ public class MovingPlatform : MonoBehaviour
             {
                 i = 0;
             }
+            if (playerOn)
+            {
+                character.m_FacingRight = !character.m_FacingRight;
+            }
         }
 
         // moving the platform to the point pos with index "i"
@@ -41,10 +53,12 @@ public class MovingPlatform : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         collision.transform.SetParent(transform);
+        playerOn = true;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         collision.transform.SetParent(null);
+        playerOn = false;
     }
 }
