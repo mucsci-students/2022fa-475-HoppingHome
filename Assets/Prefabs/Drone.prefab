@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5507341348315547627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.846431, y: -1.6817021, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -152,10 +152,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca746e8b8e394e4796bb43e7e147860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 2
   health: 3
+  angered: 0
   leftBound: {fileID: 166010617056733524}
   rightBound: {fileID: 5141347213451787066}
+  bullet: {fileID: 5308480209687561116, guid: f761926f7d4c64db790af0c74916edd4, type: 3}
+  bulletSpeed: 5
+  bulletCooldown: 2
 --- !u!50 &7601267052470079618
 Rigidbody2D:
   serializedVersion: 4
