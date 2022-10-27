@@ -24,6 +24,8 @@ public class DroneScript : MonoBehaviour
     public float bulletCooldown = 2.00f;
     private float timer = 0f;
 
+    private Animator anim;    
+
     void Start()
     {
         start = transform;
@@ -31,6 +33,7 @@ public class DroneScript : MonoBehaviour
         lb = leftBound.position.x;
         rb = rightBound.position.x;
         sr = gameObject.GetComponent<SpriteRenderer>(); 
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -112,6 +115,6 @@ public class DroneScript : MonoBehaviour
             GameObject temp = Instantiate(bullet, transform.position + offsetLeft, Quaternion.identity);
             temp.GetComponent<Rigidbody2D>().velocity = (player.transform.position - temp.transform.position).normalized * bulletSpeed;
         }
-        //m_Anim.SetTrigger("Shoot");
+        anim.SetTrigger("Shoot");
     }
 }
