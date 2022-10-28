@@ -8,17 +8,19 @@ public class DroneScript : MonoBehaviour
     public float speed = 3f;
     public int health = 3;
     public bool angered = false;
+    public float detectionRadius = 7.5f;
     public Transform leftBound;
     public Transform rightBound;
+    public GameObject player;
 
     private float lb;
     private float rb;
     private Transform start;
     private bool isRight = false;
-    private GameObject player;
     private Rigidbody2D rb2D;
     private SpriteRenderer sr;
 
+    // Bullet stuff
     public GameObject bullet;
     public float bulletSpeed = 1f;
     public float bulletCooldown = 2.00f;
@@ -53,6 +55,11 @@ public class DroneScript : MonoBehaviour
             } else {
                 transform.position = Vector2.MoveTowards(transform.position, new Vector2(lb, transform.position.y), speed * Time.deltaTime);
             }
+            if (Vector3.Distance(player.transform.position, transform.position) < detectionRadius)
+            {
+                angered = true;
+                sr.color = new Color(1f, 0.5f, 0.5f, 1f);
+            }
         } else {
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x + xOffSet, player.transform.position.y + 0.75f), speed * Time.deltaTime);
             if ((isRight && transform.position.x > player.transform.position.x + xOffSet) || 
@@ -74,10 +81,14 @@ public class DroneScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.name == "Ziggy")
+        if (col.gameObject.tag == "Damage")
         {
-            angered = true;
-            player = col.gameObject;
+            --health;
+            Destroy(col.gameObject);
+            if (health <= 0)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 
