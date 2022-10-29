@@ -307,6 +307,15 @@ AnimationClip:
         time: 2.1333334
         value: {x: 46.21, y: 20.05, z: 0}
         inSlope: {x: 14.084997, y: 7.454998, z: -0}
+        outSlope: {x: 6.679248, y: 4.233965, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 3.0166667
+        value: {x: 52.11, y: 23.79, z: 0}
+        inSlope: {x: 6.679248, y: 4.233965, z: -0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
@@ -339,7 +348,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.1333334
+    m_StopTime: 3.0166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -380,6 +389,15 @@ AnimationClip:
         time: 2.1333334
         value: 46.21
         inSlope: 14.084997
+        outSlope: 6.679248
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 3.0166667
+        value: 52.11
+        inSlope: 6.679248
         outSlope: 0
         tangentMode: 69
         weightedMode: 0
@@ -417,6 +435,15 @@ AnimationClip:
         time: 2.1333334
         value: 20.05
         inSlope: 7.454998
+        outSlope: 4.233965
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 3.0166667
+        value: 23.79
+        inSlope: 4.233965
         outSlope: 0
         tangentMode: 69
         weightedMode: 0
@@ -452,6 +479,15 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 2.1333334
+        value: 0
+        inSlope: -0
+        outSlope: 0
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 3.0166667
         value: 0
         inSlope: -0
         outSlope: 0
