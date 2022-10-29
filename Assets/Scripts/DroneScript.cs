@@ -87,6 +87,7 @@ public class DroneScript : MonoBehaviour
             Destroy(col.gameObject);
             if (health <= 0)
             {
+                anim.Play("Die");
                 gameObject.SetActive(false);
             }
         }
