@@ -10,7 +10,7 @@
 
 ### Developers 
 - [Samantha Noggle](https://github.com/astruxie)
-- [Jerek Martinez-Andujar](https://github.com/)
+- [Jerek Martinez-Andujar](https://github.com/JPapyrus)
 - [Justin Stevens](https://github.com/JSteve0)
 
 ### Assets
