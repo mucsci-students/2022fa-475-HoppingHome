@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -2250,9 +2250,9 @@ TextureImporter:
       tileset_city_free_8: 1786813715
       tileset_city_free_45: -1901670078
       tileset_city_free_34: 560029826
-      tileset_city_free_82: -105357186
-      tileset_city_free_95: -632522671
       tileset_city_free_85: 2006953192
+      tileset_city_free_95: -632522671
+      tileset_city_free_82: -105357186
       tileset_city_free_74: 1722489775
       tileset_city_free_42: -1697872149
       tileset_city_free_29: 1651669902
