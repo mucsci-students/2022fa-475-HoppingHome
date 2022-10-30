@@ -62,11 +62,16 @@ namespace UnityStandardAssets._2D
 
         void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log("Kill me");
+            Debug.Log(collision.gameObject.name);
             if (collision.gameObject.tag == "Powerup")
             {
                 heal = source.clip;
                 source.PlayOneShot(heal);
+            }
+            else if (collision.gameObject.tag == "EnemyDamage")
+            {
+              Destroy(collision.gameObject);
+              m_Character.health--;
             }
         }
     }

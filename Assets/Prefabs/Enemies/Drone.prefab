@@ -155,8 +155,10 @@ MonoBehaviour:
   speed: 2
   health: 3
   angered: 0
+  detectionRadius: 7.5
   leftBound: {fileID: 166010617056733524}
   rightBound: {fileID: 5141347213451787066}
+  player: {fileID: 0}
   bullet: {fileID: 5308480209687561116, guid: f761926f7d4c64db790af0c74916edd4, type: 3}
   bulletSpeed: 5
   bulletCooldown: 2
