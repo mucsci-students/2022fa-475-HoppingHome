@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UnityStandardAssets._2D
 {
@@ -70,8 +71,17 @@ namespace UnityStandardAssets._2D
             }
             else if (collision.gameObject.tag == "EnemyDamage")
             {
-              Destroy(collision.gameObject);
-              m_Character.health--;
+                Destroy(collision.gameObject);
+                m_Character.health--;
+            }
+            else if (collision.gameObject.tag == "Kill")
+            {
+                m_Character.health = 0;
+            }
+
+            if (m_Character.health <= 0) 
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
             }
         }
     }
