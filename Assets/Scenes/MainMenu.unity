@@ -1077,6 +1077,7 @@ GameObject:
   - component: {fileID: 725478622}
   - component: {fileID: 725478624}
   - component: {fileID: 725478623}
+  - component: {fileID: 725478625}
   m_Layer: 5
   m_Name: BackgroundImage
   m_TagString: Untagged
@@ -1142,6 +1143,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725478621}
   m_CullTransparentMesh: 1
+--- !u!114 &725478625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725478621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5146a3acac8807d4dbac027bd2b7072f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveModifier: 50
 --- !u!1 &920199347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,7 +1880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level1: Level1(City)
-  level2: Level2(Clouds)
+  l2: CloudEnterCutscene
   level3: Level3(Space)
 --- !u!4 &1382426724
 Transform:
