@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 8691f439eb2a22f48964c88628eacd00
+guid: 385fbc949d5406a42a38f7ce6bcf7dda
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
+  fontSize: 17
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Computer Pixel-7
+  - Upheaval TT (BRK)
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
