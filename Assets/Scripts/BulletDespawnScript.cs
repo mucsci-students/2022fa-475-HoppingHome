@@ -25,4 +25,12 @@ public class BulletDespawnScript : MonoBehaviour
         }
         timer += Time.deltaTime;
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Ziggy")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

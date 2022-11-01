@@ -70,7 +70,6 @@ namespace UnityStandardAssets._2D
             }
             else if (collision.gameObject.tag == "EnemyDamage")
             {
-                Destroy(collision.gameObject);
                 m_Character.health--;
             }
             else if (collision.gameObject.tag == "Kill")

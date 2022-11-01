@@ -10,6 +10,7 @@ public class AsteroidScript : MonoBehaviour
     public float despawnDistance = 100f;
     public bool isFalling = false; 
     public GameObject player;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class AsteroidScript : MonoBehaviour
         {
             player = GameObject.Find("Ziggy");
         }
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -43,12 +45,21 @@ public class AsteroidScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log(col.gameObject.name);
         if (col.gameObject.tag == "Damage")
         {
-            Destroy(gameObject);
+            anim.SetTrigger("Explode");
+            GetComponent<Collider2D>().enabled = false;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             Destroy(col.gameObject);
+        } 
+        
+        if (col.gameObject.name == "Ziggy")
+        {
+            anim.SetTrigger("Explode");
+            GetComponent<Collider2D>().enabled = false;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
         }
     }
-
     
 }
