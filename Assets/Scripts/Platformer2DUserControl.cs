@@ -63,7 +63,6 @@ namespace UnityStandardAssets._2D
 
         void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log(collision.gameObject.name);
             if (collision.gameObject.tag == "Powerup")
             {
                 heal = source.clip;
@@ -81,7 +80,7 @@ namespace UnityStandardAssets._2D
 
             if (m_Character.health <= 0) 
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+                m_Character.respawn();
             }
         }
     }

@@ -12,6 +12,7 @@ namespace UnityStandardAssets._2D
 
 
         public int health = 3;
+        private int startHealth;
 
         private Animator m_Anim;                // Reference to the player's animator.
         private Rigidbody2D m_Rigidbody2D;      // Reference to the player's Rigidbody.
@@ -49,6 +50,7 @@ namespace UnityStandardAssets._2D
         {
             // Set up player start
             m_Rigidbody2D.position = m_spawn.position;
+            startHealth = health;
         }
 
         private void FixedUpdate()
@@ -217,6 +219,12 @@ namespace UnityStandardAssets._2D
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
+        }
+
+        public void respawn()
+        {
+            m_Rigidbody2D.position = m_spawn.position;
+            health = startHealth;
         }
 
         // Fires a bullet at a given speed, called from character inputs script
