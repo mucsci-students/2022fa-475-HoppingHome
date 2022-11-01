@@ -36,6 +36,10 @@ public class DroneScript : MonoBehaviour
         rb = rightBound.position.x;
         sr = gameObject.GetComponent<SpriteRenderer>(); 
         anim = GetComponent<Animator>();
+        if (player == null)
+        {
+            player = GameObject.Find("Ziggy");
+        }
     }
 
     // Update is called once per frame
