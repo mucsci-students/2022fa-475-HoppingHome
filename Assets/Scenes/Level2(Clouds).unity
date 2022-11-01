@@ -276,7 +276,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 45d4aef9e97b7414e8755ede8debda46, type: 3}
   m_Type: 3
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 0
   m_FillAmount: 0.3
@@ -301,16 +301,16 @@ RectTransform:
   m_GameObject: {fileID: 117826135}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 291339499}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -300, y: 325}
-  m_SizeDelta: {x: -600, y: -650}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 305, y: 358}
+  m_SizeDelta: {x: 1225, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &140050489
 GameObject:
@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae71e74c36813b41adb4d384c973fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
+  character: {fileID: 6959451597275899316}
   totalHealthBar: {fileID: 687467971}
   currentHealthBar: {fileID: 117826136}
 --- !u!114 &291339496
@@ -1027,7 +1027,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 45d4aef9e97b7414e8755ede8debda46, type: 3}
   m_Type: 3
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 0
   m_FillAmount: 0.3
@@ -1052,16 +1052,16 @@ RectTransform:
   m_GameObject: {fileID: 687467970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 291339499}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -300, y: 325}
-  m_SizeDelta: {x: -600, y: -650}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 305, y: 358}
+  m_SizeDelta: {x: 1225, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &695122685
 GameObject:
@@ -4602,6 +4602,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8356009623244432347, guid: de5a7f509bdbc374eb2ed8b77f2caabe, type: 3}
   m_PrefabInstance: {fileID: 1396804316909356663}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6959451597275899316 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8356009621770720038, guid: de5a7f509bdbc374eb2ed8b77f2caabe, type: 3}
+  m_PrefabInstance: {fileID: 1396804316909356663}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65826106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e3f2520feb646aab2d3a09e0eb89a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7894515769106187063
 PrefabInstance:
   m_ObjectHideFlags: 0
