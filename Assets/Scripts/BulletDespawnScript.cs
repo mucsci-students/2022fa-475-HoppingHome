@@ -28,7 +28,7 @@ public class BulletDespawnScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Ziggy")
+        if (collision.gameObject.name == "Ziggy" && gameObject.tag == "EnemyDamage")
         {
             Destroy(gameObject);
         }
