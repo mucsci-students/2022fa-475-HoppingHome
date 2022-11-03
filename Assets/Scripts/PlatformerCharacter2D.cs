@@ -14,7 +14,7 @@ namespace UnityStandardAssets._2D
         public int health = 3;
         private int startHealth;
 
-        private Animator m_Anim;                // Reference to the player's animator.
+        public Animator m_Anim;                // Reference to the player's animator.
         private Rigidbody2D m_Rigidbody2D;      // Reference to the player's Rigidbody.
         private Transform m_GroundCheck;        // A position marking where to check if the player is grounded.
         private Transform m_CeilingCheck;       // A position marking where to check for ceilings

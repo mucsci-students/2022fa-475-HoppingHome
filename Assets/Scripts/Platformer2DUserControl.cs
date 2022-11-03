@@ -85,6 +85,7 @@ namespace UnityStandardAssets._2D
             {
                 if (!invincible)
                 {
+                    m_Character.m_Anim.SetTrigger("TakeDamage");
                     m_Character.health--;
                     invincible = true;
                 }
