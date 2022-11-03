@@ -25,6 +25,7 @@ namespace UnityStandardAssets._2D
         private const float k_CeilingRadius = .01f;     // Radius of the overlap circle to determine if the player can stand up
         private const float m_CrouchSpeed = 0f;         // Movement speed when crouched
         private bool m_Grounded;                // Whether or not the player is grounded.
+        private bool m_wall;
         public bool m_FacingRight = true;      // For determining which way the player is currently facing.
         private bool isJumping;                 // Whether or not the player is in the air with jumpHoldDuration.
 
@@ -56,6 +57,7 @@ namespace UnityStandardAssets._2D
         private void FixedUpdate()
         {
             m_Grounded = false;
+            m_wall = false;
 
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
             Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
@@ -78,6 +80,7 @@ namespace UnityStandardAssets._2D
                     if (colliders[i].gameObject != gameObject)
                     {
                         m_Grounded = true;
+                        m_wall = true;
                         break;
                     }
                 }
@@ -93,6 +96,7 @@ namespace UnityStandardAssets._2D
                     if (colliders[i].gameObject != gameObject)
                     {
                         m_Grounded = true;
+                        m_wall = true;
                         break;
                     }
                 }
@@ -184,6 +188,22 @@ namespace UnityStandardAssets._2D
                 jumpHoldCounter = jumpHoldDuration;
                 // Juuump!
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce + 250f));
+            }
+
+            if (m_wall && jump)
+            {
+              // While in air, change states
+              m_Grounded = false;
+              isJumping = true;
+
+              // Set state for animator
+              m_Anim.SetBool("Ground", false);
+
+              // Initialize jump interval
+              jumpHoldCounter = jumpHoldDuration;
+              // Juuump!
+              //m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce + 450f));
+              m_Rigidbody2D.velocity = new Vector2(0f, 3f);
             }
             
             // If HOLDING jump && in the air:
