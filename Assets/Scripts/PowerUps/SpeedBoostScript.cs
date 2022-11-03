@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets._2D;
 
 public class SpeedBoostScript : MonoBehaviour
@@ -9,8 +10,12 @@ public class SpeedBoostScript : MonoBehaviour
     public PlatformerCharacter2D character;
     public float speedMult = 1.5f;
     public float duration = 5.0f;
+    private float startDuration;
     private bool isActivated = false;
     private float orginalSpeed;
+
+    [SerializeField] private Image totalBar;
+    [SerializeField] private Image currentBar;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +28,7 @@ public class SpeedBoostScript : MonoBehaviour
         {
             character = player.GetComponent<PlatformerCharacter2D>();
         }
+        startDuration = duration;
         orginalSpeed = character.m_MaxSpeed;
     }
 
@@ -31,11 +37,14 @@ public class SpeedBoostScript : MonoBehaviour
     {
         if (isActivated) 
         {
+            currentBar.fillAmount = duration / startDuration;
             duration -= Time.deltaTime;
             if (duration <= 0f)
             {
                 character.m_MaxSpeed = orginalSpeed;
                 gameObject.SetActive(false);
+                totalBar.gameObject.SetActive(false);
+                currentBar.gameObject.SetActive(false);
             }
         }
     }
@@ -47,6 +56,8 @@ public class SpeedBoostScript : MonoBehaviour
             character.m_MaxSpeed = orginalSpeed * speedMult;
             isActivated = true;
             GetComponent<SpriteRenderer>().enabled = false;
+            totalBar.gameObject.SetActive(true);
+            currentBar.gameObject.SetActive(true);
         }
     }
 }

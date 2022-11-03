@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets._2D;
 
 public class FireRateBuffScript : MonoBehaviour
@@ -9,8 +10,12 @@ public class FireRateBuffScript : MonoBehaviour
     public Platformer2DUserControl character;
     public float fireRateMult = 2.0f;
     public float duration = 5.0f;
+    private float startDuration;
     private bool isActivated = false;
     private float orginalCooldown;
+
+    [SerializeField] private Image totalBar;
+    [SerializeField] private Image currentBar;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +28,7 @@ public class FireRateBuffScript : MonoBehaviour
         {
             character = player.GetComponent<Platformer2DUserControl>();
         }
+        startDuration = duration;
         orginalCooldown = character.bulletCooldown;
     }
 
@@ -31,11 +37,14 @@ public class FireRateBuffScript : MonoBehaviour
     {
         if (isActivated) 
         {
+            currentBar.fillAmount = duration / startDuration;
             duration -= Time.deltaTime;
             if (duration <= 0f)
             {
                 character.bulletCooldown = orginalCooldown;
                 gameObject.SetActive(false);
+                totalBar.gameObject.SetActive(false);
+                currentBar.gameObject.SetActive(false);
             }
         }
     }
@@ -47,6 +56,8 @@ public class FireRateBuffScript : MonoBehaviour
             character.bulletCooldown = orginalCooldown / fireRateMult;
             isActivated = true;
             GetComponent<SpriteRenderer>().enabled = false;
+            totalBar.gameObject.SetActive(true);
+            currentBar.gameObject.SetActive(true);
         }
     }
 }
