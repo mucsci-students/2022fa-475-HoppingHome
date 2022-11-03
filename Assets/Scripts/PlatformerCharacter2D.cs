@@ -69,7 +69,7 @@ namespace UnityStandardAssets._2D
             }
 
             // Right Wall Check
-            if (!m_Grounded && m_Rigidbody2D.velocity.y <= 4)
+            if (!m_Grounded && m_Rigidbody2D.velocity.y <= 7)
             {
                 // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
                 colliders = Physics2D.OverlapCircleAll(m_RightCheck.position, k_GroundedRadius, m_WhatIsGround);
@@ -84,7 +84,7 @@ namespace UnityStandardAssets._2D
             }
 
             // Left wall check
-            if (!m_Grounded && m_Rigidbody2D.velocity.y <= 4)
+            if (!m_Grounded && m_Rigidbody2D.velocity.y <= 7)
             {
                 // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
                 colliders = Physics2D.OverlapCircleAll(m_LeftCheck.position, k_GroundedRadius, m_WhatIsGround);
