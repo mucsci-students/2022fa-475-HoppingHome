@@ -18,6 +18,9 @@ namespace UnityStandardAssets._2D
         public GameObject bullet;
         public Vector2 bulletSpeed = new Vector2(10f, 0f);
 
+        public float invincibleLength = 0.25f;
+        private float invincibleTimer = 0f;
+        public bool invincible = false;
 
 
         private void Awake()
@@ -46,6 +49,16 @@ namespace UnityStandardAssets._2D
             }
 
             timer += Time.deltaTime;
+
+            if (invincible)
+            {
+                invincibleTimer += Time.deltaTime;
+                if (invincibleTimer > invincibleLength)
+                {
+                    invincible = false;
+                    invincibleTimer = 0f;
+                }
+            }
         }
 
         private void FixedUpdate()
@@ -70,11 +83,18 @@ namespace UnityStandardAssets._2D
             }
             else if (collision.gameObject.tag == "EnemyDamage")
             {
-                m_Character.health--;
+                if (!invincible)
+                {
+                    m_Character.health--;
+                    invincible = true;
+                }
             }
             else if (collision.gameObject.tag == "Kill")
             {
-                m_Character.health = 0;
+                if (!invincible)
+                {
+                    m_Character.health = 0;
+                }
             }
 
             if (m_Character.health <= 0) 
