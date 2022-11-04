@@ -26,6 +26,8 @@ public class DroneScript : MonoBehaviour
     public float bulletCooldown = 2.00f;
     private float timer = 0f;
 
+    private bool dead = false;
+
     private Animator anim;    
 
     void Start()
@@ -45,41 +47,48 @@ public class DroneScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xOffSet = -0.5f;
-        if (!angered)
+        if (!dead)
         {
-            if ((isRight && transform.position.x >= rb) || 
-                (!isRight && transform.position.x <= lb))
+            float xOffSet = -0.5f;
+            if (!angered)
             {
-                flip();
+                if ((isRight && transform.position.x >= rb) ||
+                    (!isRight && transform.position.x <= lb))
+                {
+                    flip();
+                }
+                if (isRight)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, new Vector2(rb, transform.position.y), speed * Time.deltaTime);
+                }
+                else
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, new Vector2(lb, transform.position.y), speed * Time.deltaTime);
+                }
+                if (Vector3.Distance(player.transform.position, transform.position) < detectionRadius)
+                {
+                    angered = true;
+                    sr.color = new Color(1f, 0.5f, 0.5f, 1f);
+                }
             }
-            if (isRight)
+            else
             {
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(rb, transform.position.y), speed * Time.deltaTime);
-            } else {
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(lb, transform.position.y), speed * Time.deltaTime);
-            }
-            if (Vector3.Distance(player.transform.position, transform.position) < detectionRadius)
-            {
-                angered = true;
-                sr.color = new Color(1f, 0.5f, 0.5f, 1f);
-            }
-        } else {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x + xOffSet, player.transform.position.y + 0.75f), speed * Time.deltaTime);
-            if ((isRight && transform.position.x > player.transform.position.x + xOffSet) || 
-                (!isRight && transform.position.x < player.transform.position.x + xOffSet))
-            {
-                flip();
-            }
-            
-            //Shoot
-            if (timer > bulletCooldown)
-            {
-                fire();
-                timer = 0f;
-            }
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x + xOffSet, player.transform.position.y + 0.75f), speed * Time.deltaTime);
+                if ((isRight && transform.position.x > player.transform.position.x + xOffSet) ||
+                    (!isRight && transform.position.x < player.transform.position.x + xOffSet))
+                {
+                    flip();
+                }
 
-            timer += Time.deltaTime;
+                //Shoot
+                if (timer > bulletCooldown)
+                {
+                    fire();
+                    timer = 0f;
+                }
+
+                timer += Time.deltaTime;
+            }
         }
     }
 
@@ -93,7 +102,8 @@ public class DroneScript : MonoBehaviour
             if (health <= 0)
             {
                 anim.Play("Die");
-                gameObject.SetActive(false);
+                dead = true;
+                rb2D.gravityScale = 1.0f;
             }
         }
     }
