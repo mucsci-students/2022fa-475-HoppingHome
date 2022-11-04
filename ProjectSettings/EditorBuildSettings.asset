@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1(City).unity
     guid: 074dee0e7806245c5ba6559b2038a69f
   - enabled: 1
+    path: Assets/Scenes/CityExitCutscene.unity
+    guid: ef2b8646150584b42a817d76bc6076dc
+  - enabled: 1
     path: Assets/Scenes/CloudEnterCutscene.unity
     guid: 7fc3b14ea16797e459f58a9bd8bf3f4f
   - enabled: 1
