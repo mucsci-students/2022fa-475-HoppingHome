@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
     // These should eventually be the cutscene entrance scenes
-    public string level1 = "Level1(City)";
+    public string level1 = "CityEnterCutscene";
     public string l2 = "CloudEnterCutscene";
     public string level3 = "Level3(Space)";
 
@@ -23,6 +23,12 @@ public class MenuScript : MonoBehaviour
     public void loadLevel3()
     {
         SceneManager.LoadScene(sceneName: level3);
+    }
+
+    // Play the into cutscene when playing from the start w/ play button
+    public void playButton()
+    {
+        SceneManager.LoadScene("OpeningCutscene");
     }
 
     public void quit()

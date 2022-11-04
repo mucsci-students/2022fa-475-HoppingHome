@@ -2374,7 +2374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeTime: 14
-  sceneName: Level1(City)
+  sceneName: CityEnterCutscene
 --- !u!4 &1585375927
 Transform:
   m_ObjectHideFlags: 0
