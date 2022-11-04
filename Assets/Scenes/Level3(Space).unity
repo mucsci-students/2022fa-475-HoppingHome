@@ -1634,6 +1634,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de5a7f509bdbc374eb2ed8b77f2caabe, type: 3}
+--- !u!114 &645006393 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 390003608602558467, guid: f44252e0a8c5dbff9a695044a68dc50c, type: 3}
+  m_PrefabInstance: {fileID: 1751713874}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &679556729
 GameObject:
   m_ObjectHideFlags: 0
@@ -3275,6 +3286,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1277298006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 390003608215263264, guid: f44252e0a8c5dbff9a695044a68dc50c, type: 3}
+  m_PrefabInstance: {fileID: 1751713874}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1289390850
 GameObject:
   m_ObjectHideFlags: 0
@@ -5826,5 +5848,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedBoost
       objectReference: {fileID: 0}
+    - target: {fileID: 3019602716958391055, guid: daf0e40e091c449c0bb8eac96a4604f4, type: 3}
+      propertyPath: totalBar
+      value: 
+      objectReference: {fileID: 1277298006}
+    - target: {fileID: 3019602716958391055, guid: daf0e40e091c449c0bb8eac96a4604f4, type: 3}
+      propertyPath: currentBar
+      value: 
+      objectReference: {fileID: 645006393}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daf0e40e091c449c0bb8eac96a4604f4, type: 3}
