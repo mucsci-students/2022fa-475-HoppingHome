@@ -22,6 +22,8 @@ public class CopScript : MonoBehaviour
     public float bulletCooldown = 1.00f;
     private float timer = 0f;
 
+    private bool dead = false;
+
     private Animator anim;
 
     // Start is called before the first frame update
@@ -40,33 +42,36 @@ public class CopScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!angered)
+        if (!dead)
         {
-            float curDistance = Vector3.Distance(transform.position, player.transform.position);
-            if (curDistance < detectionRadius)
+            if (!angered)
             {
-                angered = true;
-                anim.SetBool("isMoving", true);
+                float curDistance = Vector3.Distance(transform.position, player.transform.position);
+                if (curDistance < detectionRadius)
+                {
+                    angered = true;
+                    anim.SetBool("isMoving", true);
+                }
             }
-        }
-        else
-        {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), speed * Time.deltaTime);
-
-            if ((isRight && player.transform.position.x < transform.position.x) || 
-                (!isRight && player.transform.position.x > transform.position.x))
+            else
             {
-                flip();
-            }
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), speed * Time.deltaTime);
 
-            //Shoot
-            if (timer > bulletCooldown)
-            {
-                fire();
-                timer = 0f;
-            }
+                if ((isRight && player.transform.position.x < transform.position.x) ||
+                    (!isRight && player.transform.position.x > transform.position.x))
+                {
+                    flip();
+                }
 
-            timer += Time.deltaTime;
+                //Shoot
+                if (timer > bulletCooldown)
+                {
+                    fire();
+                    timer = 0f;
+                }
+
+                timer += Time.deltaTime;
+            }
         }
     }
 
@@ -94,7 +99,7 @@ public class CopScript : MonoBehaviour
             GameObject temp = Instantiate(bullet, transform.position + offsetLeft, Quaternion.identity);
             temp.GetComponent<Rigidbody2D>().velocity = (player.transform.position - temp.transform.position).normalized * bulletSpeed;
         }
-        anim.SetTrigger("Shoot");
+        anim.SetTrigger("shoot");
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -105,8 +110,9 @@ public class CopScript : MonoBehaviour
             Destroy(col.gameObject);
             if (health <= 0)
             {
-                anim.Play("Die");
-                gameObject.SetActive(false);
+                anim.Play("Death");
+                dead = true;
+                //gameObject.SetActive(false);
             }
         }
     }
