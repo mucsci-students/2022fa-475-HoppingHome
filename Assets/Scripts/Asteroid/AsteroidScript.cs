@@ -54,7 +54,7 @@ public class AsteroidScript : MonoBehaviour
             Destroy(col.gameObject);
         } 
         
-        if (col.gameObject.name == "Ziggy")
+        if (col.gameObject.tag == "Player")
         {
             anim.SetTrigger("Explode");
             GetComponent<Collider2D>().enabled = false;
