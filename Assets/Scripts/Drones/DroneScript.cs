@@ -88,6 +88,7 @@ public class DroneScript : MonoBehaviour
         if (col.gameObject.tag == "Damage")
         {
             --health;
+            anim.SetTrigger("TakeDamage");
             Destroy(col.gameObject);
             if (health <= 0)
             {
