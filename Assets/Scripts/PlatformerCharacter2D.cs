@@ -77,8 +77,9 @@ namespace UnityStandardAssets._2D
                 colliders = Physics2D.OverlapCircleAll(m_RightCheck.position, k_GroundedRadius, m_WhatIsGround);
                 for (int i = 0; i < colliders.Length; i++)
                 {
-                    if (colliders[i].gameObject != gameObject)
+                    if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "Damage")
                     {
+                        Debug.Log(colliders[i]);
                         m_Grounded = true;
                         m_wall = true;
                         break;
@@ -93,8 +94,9 @@ namespace UnityStandardAssets._2D
                 colliders = Physics2D.OverlapCircleAll(m_LeftCheck.position, k_GroundedRadius, m_WhatIsGround);
                 for (int i = 0; i < colliders.Length; i++)
                 {
-                    if (colliders[i].gameObject != gameObject)
+                    if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "Damage")
                     {
+                        Debug.Log(colliders[i]);
                         m_Grounded = true;
                         m_wall = true;
                         break;
