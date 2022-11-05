@@ -12,5 +12,13 @@ public class RespawnManager : MonoBehaviour
             drone.respawn();
             Destroy(drone.gameObject);
         }
+
+        CarScript[] cars = FindObjectsOfType(typeof(CarScript)) as CarScript[];
+        foreach (CarScript car in cars)
+        {
+            car.respawn();
+            Destroy(car.gameObject);
+        }
+
     }
 }

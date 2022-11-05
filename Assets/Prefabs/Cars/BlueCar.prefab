@@ -104,6 +104,7 @@ MonoBehaviour:
   spawnDistance: 50
   despawnDistance: 100
   player: {fileID: 0}
+  carPrefab: {fileID: 2556606702796826367}
 --- !u!61 &2556606702796826361
 BoxCollider2D:
   m_ObjectHideFlags: 0

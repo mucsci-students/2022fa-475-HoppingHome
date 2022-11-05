@@ -54453,6 +54453,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 244292510}
     m_Modifications:
     - target: {fileID: 2556606702796826340, guid: 2f997703a9f59df4cbf83e0fd93f9fbc, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 373360279}
+    - target: {fileID: 2556606702796826340, guid: 2f997703a9f59df4cbf83e0fd93f9fbc, type: 3}
+      propertyPath: carPrefab
+      value: 
+      objectReference: {fileID: 2556606702796826367, guid: 2f997703a9f59df4cbf83e0fd93f9fbc, type: 3}
+    - target: {fileID: 2556606702796826340, guid: 2f997703a9f59df4cbf83e0fd93f9fbc, type: 3}
       propertyPath: spawnDistance
       value: 30
       objectReference: {fileID: 0}
@@ -54566,6 +54574,14 @@ PrefabInstance:
       value: spr_vintage_0
       objectReference: {fileID: 0}
     - target: {fileID: 893190310684686308, guid: 31014fa3ab764dd4595c7bc00bfcd1dd, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 373360279}
+    - target: {fileID: 893190310684686308, guid: 31014fa3ab764dd4595c7bc00bfcd1dd, type: 3}
+      propertyPath: carPrefab
+      value: 
+      objectReference: {fileID: 893190310684686111, guid: 31014fa3ab764dd4595c7bc00bfcd1dd, type: 3}
+    - target: {fileID: 893190310684686308, guid: 31014fa3ab764dd4595c7bc00bfcd1dd, type: 3}
       propertyPath: velocityX
       value: -12
       objectReference: {fileID: 0}
@@ -54582,6 +54598,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 244292510}
     m_Modifications:
+    - target: {fileID: 2556606702796826340, guid: 2f997703a9f59df4cbf83e0fd93f9fbc, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 373360279}
+    - target: {fileID: 2556606702796826340, guid: 2f997703a9f59df4cbf83e0fd93f9fbc, type: 3}
+      propertyPath: carPrefab
+      value: 
+      objectReference: {fileID: 2556606702796826367, guid: 2f997703a9f59df4cbf83e0fd93f9fbc, type: 3}
     - target: {fileID: 2556606702796826363, guid: 2f997703a9f59df4cbf83e0fd93f9fbc, type: 3}
       propertyPath: m_RootOrder
       value: 0
