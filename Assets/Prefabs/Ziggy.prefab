@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 8356009623244432347}
   - component: {fileID: 8356009621770720038}
   - component: {fileID: 8356009621770720039}
+  - component: {fileID: 8088454317821430917}
   - component: {fileID: 4599107846043677564}
   - component: {fileID: 8356009621770720032}
   - component: {fileID: 8356009621770720036}
@@ -124,6 +125,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   health: 3
+  m_Anim: {fileID: 0}
   m_FacingRight: 1
   jumpHoldDuration: 0.25
   m_spawn: {fileID: 0}
@@ -144,6 +146,20 @@ MonoBehaviour:
   bulletCooldown: 0.25
   bullet: {fileID: 4071997563980243021, guid: d6806dd19b051e64db88cf38462e8c40, type: 3}
   bulletSpeed: {x: 10, y: 0}
+  invincibleLength: 0.25
+  invincible: 0
+--- !u!114 &8088454317821430917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8356009621770720059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0198bf3fed1fe9c4a80d301e9a0ea6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &4599107846043677564
 Animator:
   serializedVersion: 4

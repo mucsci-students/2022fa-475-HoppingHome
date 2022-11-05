@@ -245,6 +245,7 @@ namespace UnityStandardAssets._2D
         {
             m_Rigidbody2D.position = m_spawn.position;
             health = startHealth;
+            GetComponent<RespawnManager>().respawn();
         }
 
         // Fires a bullet at a given speed, called from character inputs script

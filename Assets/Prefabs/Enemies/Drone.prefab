@@ -161,6 +161,7 @@ MonoBehaviour:
   leftBound: {fileID: 5515907918273014124}
   rightBound: {fileID: 5515907916368733067}
   player: {fileID: 0}
+  dronePrefab: {fileID: 5515907917404522108}
   bullet: {fileID: 5308480209687561116, guid: f761926f7d4c64db790af0c74916edd4, type: 3}
   bulletSpeed: 5
   bulletCooldown: 2

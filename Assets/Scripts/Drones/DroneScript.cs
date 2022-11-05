@@ -7,15 +7,17 @@ public class DroneScript : MonoBehaviour
 
     public float speed = 3f;
     public int health = 3;
+    private int startHealth;
     public bool angered = false;
     public float detectionRadius = 7.5f;
     public Transform leftBound;
     public Transform rightBound;
     public GameObject player;
+    public GameObject dronePrefab;
 
     private float lb;
     private float rb;
-    private Transform start;
+    private Vector3 start;
     private bool isRight = false;
     private Rigidbody2D rb2D;
     private SpriteRenderer sr;
@@ -32,12 +34,14 @@ public class DroneScript : MonoBehaviour
 
     void Start()
     {
-        start = transform;
+        start = transform.position;
+        Debug.Log(start);
         rb2D = GetComponent<Rigidbody2D>();
         lb = leftBound.position.x;
         rb = rightBound.position.x;
         sr = gameObject.GetComponent<SpriteRenderer>(); 
         anim = GetComponent<Animator>();
+        startHealth = health;
         if (player == null)
         {
             player = GameObject.Find("Ziggy");
@@ -143,5 +147,17 @@ public class DroneScript : MonoBehaviour
             temp.GetComponent<Rigidbody2D>().velocity = (player.transform.position - temp.transform.position).normalized * bulletSpeed;
         }
         anim.SetTrigger("Shoot");
+    }
+
+    public void respawn()
+    {
+        GameObject newDrone = Instantiate(dronePrefab, start, Quaternion.identity);
+        DroneScript ds = newDrone.GetComponent<DroneScript>();
+        ds.health = startHealth;
+        ds.speed = speed;
+        ds.detectionRadius = detectionRadius;
+        ds.bulletCooldown = bulletCooldown;
+        ds.bulletSpeed = bulletSpeed;
+        ds.dronePrefab = dronePrefab;
     }
 }
