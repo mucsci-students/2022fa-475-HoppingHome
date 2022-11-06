@@ -12,9 +12,14 @@ public class CarScript : MonoBehaviour
     public GameObject player;
     public GameObject carPrefab;
 
+    //audio stuff
+    private AudioSource source;
+
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
+
         start = transform.position;
         if (player == null)
         {
@@ -47,6 +52,7 @@ public class CarScript : MonoBehaviour
     {
         if (collision.gameObject.name == "Ziggy")
         {
+            source.Play();
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 500f));
         }
     }

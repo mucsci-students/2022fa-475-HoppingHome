@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1396804317805537974, guid: de5a7f509bdbc374eb2ed8b77f2caabe, type: 3}
+      propertyPath: m_Volume
+      value: 0.723
+      objectReference: {fileID: 0}
     - target: {fileID: 8356009621770720038, guid: de5a7f509bdbc374eb2ed8b77f2caabe, type: 3}
       propertyPath: m_spawn
       value: 
@@ -1081,10 +1085,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2834978620088127908, guid: c7efe5ae204ed4d4ab13faa88156fef2, type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 5308480209687561116, guid: f761926f7d4c64db790af0c74916edd4, type: 3}
-    - target: {fileID: 2834978620088127908, guid: c7efe5ae204ed4d4ab13faa88156fef2, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 373360279}
@@ -1226,10 +1226,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2834978620088127908, guid: c7efe5ae204ed4d4ab13faa88156fef2, type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 5308480209687561116, guid: f761926f7d4c64db790af0c74916edd4, type: 3}
     - target: {fileID: 2834978620088127908, guid: c7efe5ae204ed4d4ab13faa88156fef2, type: 3}
       propertyPath: player
       value: 
@@ -1406,6 +1402,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2834978620088127908, guid: c7efe5ae204ed4d4ab13faa88156fef2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 373360279}
     - target: {fileID: 2834978620088127909, guid: c7efe5ae204ed4d4ab13faa88156fef2, type: 3}
       propertyPath: m_Name
       value: Cop (1)
@@ -56382,10 +56382,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2834978620088127908, guid: c7efe5ae204ed4d4ab13faa88156fef2, type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 5308480209687561116, guid: f761926f7d4c64db790af0c74916edd4, type: 3}
     - target: {fileID: 2834978620088127908, guid: c7efe5ae204ed4d4ab13faa88156fef2, type: 3}
       propertyPath: player
       value: 

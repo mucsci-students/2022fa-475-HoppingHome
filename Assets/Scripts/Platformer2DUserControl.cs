@@ -11,7 +11,7 @@ namespace UnityStandardAssets._2D
         private bool m_Jump_down;
         private bool m_Jump_button;
         public AudioSource source;
-        public AudioClip heal;
+        public AudioClip hurt;
 
         //Bullet code
         public float bulletCooldown = 0.25f;
@@ -29,7 +29,7 @@ namespace UnityStandardAssets._2D
         {
             m_Character = GetComponent<PlatformerCharacter2D>();
             source = GetComponent<AudioSource>();
-            heal = GetComponent<AudioClip>();
+            hurt = GetComponent<AudioClip>();
 
             if (shieldImg == null)
             {
@@ -93,14 +93,17 @@ namespace UnityStandardAssets._2D
         {
             if (collision.gameObject.tag == "Powerup")
             {
-                heal = source.clip;
-                source.PlayOneShot(heal);
+                // heal = source.clip;
+                // source.PlayOneShot(heal);
             }
             else if (collision.gameObject.tag == "EnemyDamage")
             {
                 if (!invincible)
                 {
-                    m_Character.m_Anim.SetTrigger("TakeDamage");
+                    hurt = source.clip;
+                    source.PlayOneShot(hurt);
+
+                    m_Character.m_Anim.SetTrigger("Flinch");
                     m_Character.health--;
                     invincible = true;
                 }

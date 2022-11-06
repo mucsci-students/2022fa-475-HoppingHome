@@ -13,6 +13,7 @@ public class FireRateBuffScript : MonoBehaviour
     private float startDuration;
     private bool isActivated = false;
     private float orginalCooldown;
+    private AudioSource source;
 
     [SerializeField] private Image totalBar;
     [SerializeField] private Image currentBar;
@@ -20,6 +21,7 @@ public class FireRateBuffScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
         if (player == null)
         {
             player = GameObject.Find("Ziggy");
@@ -60,6 +62,7 @@ public class FireRateBuffScript : MonoBehaviour
     {
         if (!isActivated && col.gameObject.name == "Ziggy")
         {
+            source.Play();
             character.bulletCooldown = orginalCooldown / fireRateMult;
             isActivated = true;
             GetComponent<SpriteRenderer>().enabled = false;
