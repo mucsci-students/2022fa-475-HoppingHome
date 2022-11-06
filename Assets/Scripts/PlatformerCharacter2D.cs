@@ -36,6 +36,7 @@ namespace UnityStandardAssets._2D
         //private float shieldDummyThickFatmAss = 1000.0f;
 
         public Transform m_spawn;               // For player spawns and checkpoints
+        private bool onBird = false;
 
         private void Awake()
         {
@@ -262,11 +263,11 @@ namespace UnityStandardAssets._2D
 
             if (m_FacingRight)
             {
-                GameObject temp = Instantiate(bullet, m_Rigidbody2D.transform.localPosition + offsetRight, Quaternion.identity);
+                GameObject temp = Instantiate(bullet, m_Rigidbody2D.transform.position + offsetRight, Quaternion.identity);
                 Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
                 rb.velocity = bulletSpeed;
             } else {
-                GameObject temp = Instantiate(bullet, m_Rigidbody2D.transform.localPosition + offsetLeft, Quaternion.identity);
+                GameObject temp = Instantiate(bullet, m_Rigidbody2D.transform.position + offsetLeft, Quaternion.identity);
                 Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
                 rb.velocity = bulletSpeed * -1f;
             }
