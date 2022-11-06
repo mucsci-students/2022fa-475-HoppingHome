@@ -164,7 +164,7 @@ MonoBehaviour:
   dronePrefab: {fileID: 5515907917404522108}
   bullet: {fileID: 5308480209687561116, guid: f761926f7d4c64db790af0c74916edd4, type: 3}
   bulletSpeed: 5
-  bulletCooldown: 2
+  bulletCooldown: 1
 --- !u!50 &63737314908022547
 Rigidbody2D:
   serializedVersion: 4
