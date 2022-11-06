@@ -28,6 +28,14 @@ public class SpeedBoostScript : MonoBehaviour
         {
             character = player.GetComponent<PlatformerCharacter2D>();
         }
+        if (totalBar == null)
+        {
+            totalBar = GameObject.Find("SpeedBoostMaxImg").GetComponent<Image>();
+        }
+        if (currentBar == null)
+        {
+            currentBar = GameObject.Find("SpeedBoostCurrImg").GetComponent<Image>();
+        }
         startDuration = duration;
         orginalSpeed = character.m_MaxSpeed;
     }
