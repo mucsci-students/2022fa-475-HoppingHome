@@ -146,8 +146,9 @@ MonoBehaviour:
   bulletCooldown: 0.25
   bullet: {fileID: 4071997563980243021, guid: d6806dd19b051e64db88cf38462e8c40, type: 3}
   bulletSpeed: {x: 10, y: 0}
-  invincibleLength: 0.25
+  invincibleLength: 1
   invincible: 0
+  shieldImg: {fileID: 0}
 --- !u!114 &8088454317821430917
 MonoBehaviour:
   m_ObjectHideFlags: 0
