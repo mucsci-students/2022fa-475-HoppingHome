@@ -13,6 +13,7 @@ public class SpeedBoostScript : MonoBehaviour
     private float startDuration;
     private bool isActivated = false;
     private float orginalSpeed;
+    private AudioSource source;
 
     [SerializeField] private Image totalBar;
     [SerializeField] private Image currentBar;
@@ -20,6 +21,8 @@ public class SpeedBoostScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
+
         if (player == null)
         {
             player = GameObject.Find("Ziggy");
@@ -60,6 +63,7 @@ public class SpeedBoostScript : MonoBehaviour
     {
         if (!isActivated && col.gameObject.name == "Ziggy")
         {
+            source.Play();
             character.m_MaxSpeed = orginalSpeed * speedMult;
             isActivated = true;
             GetComponent<SpriteRenderer>().enabled = false;

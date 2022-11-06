@@ -22,6 +22,7 @@ public class CopScript : MonoBehaviour
     public float bulletSpeed = 1f;
     public float bulletCooldown = 1.00f;
     private float timer = 0f;
+    private AudioSource source;
 
     private bool dead = false;
 
@@ -30,6 +31,7 @@ public class CopScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
         start = transform;
         startHealth = health;
         rb2D = GetComponent<Rigidbody2D>();
@@ -102,6 +104,7 @@ public class CopScript : MonoBehaviour
             temp.GetComponent<Rigidbody2D>().velocity = (player.transform.position - temp.transform.position).normalized * bulletSpeed;
         }
         anim.SetTrigger("shoot");
+        source.Play();
     }
 
     void OnTriggerEnter2D(Collider2D col)

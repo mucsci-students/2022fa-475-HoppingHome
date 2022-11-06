@@ -29,11 +29,13 @@ public class DroneScript : MonoBehaviour
     private float timer = 0f;
 
     private bool dead = false;
+    private AudioSource source;
 
     private Animator anim;    
 
     void Start()
     {
+        source = GetComponent<AudioSource>();
         start = transform.position;
         Debug.Log(start);
         rb2D = GetComponent<Rigidbody2D>();
@@ -147,6 +149,7 @@ public class DroneScript : MonoBehaviour
             temp.GetComponent<Rigidbody2D>().velocity = (player.transform.position - temp.transform.position).normalized * bulletSpeed;
         }
         anim.SetTrigger("Shoot");
+        source.Play();
     }
 
     public void respawn()

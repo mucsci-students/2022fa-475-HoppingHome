@@ -10,7 +10,7 @@ namespace UnityStandardAssets._2D
         [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
-
+        private AudioSource source;
 
         public int health = 3;
         private int startHealth;
@@ -53,6 +53,8 @@ namespace UnityStandardAssets._2D
             // Set up player start
             m_Rigidbody2D.position = m_spawn.position;
             startHealth = health;
+
+            source = GetComponent<AudioSource>();
             maxSpeedCopy = m_MaxSpeed;
         }
 
@@ -271,6 +273,7 @@ namespace UnityStandardAssets._2D
                 rb.velocity = bulletSpeed * -1f;
             }
             m_Anim.SetTrigger("Shoot");
+            source.Play();
         }
     }
 }

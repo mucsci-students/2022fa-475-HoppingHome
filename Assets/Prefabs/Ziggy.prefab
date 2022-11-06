@@ -141,8 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff11998f1011e4e8b976aedb633c43fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 0}
-  heal: {fileID: 0}
+  source: {fileID: 1396804317805537974}
+  hurt: {fileID: 8300000, guid: ae749543da8867a42818e7ae02ff27e7, type: 3}
   bulletCooldown: 0.25
   bullet: {fileID: 4071997563980243021, guid: d6806dd19b051e64db88cf38462e8c40, type: 3}
   bulletSpeed: {x: 10, y: 0}
@@ -296,9 +296,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ec890b9ab586beb44bd6e72d68af98bc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 92c40ab4ffcf60a4a912f124bc2c69e5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
