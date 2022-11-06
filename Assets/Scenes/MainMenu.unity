@@ -305,7 +305,9 @@ MonoBehaviour:
     jump: Space Bar / j
 
     Shoot: Left
-    Click / k'
+    Click / k
+
+    Open Pause Menu: ESC'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b727cfd8b2c7e6f488f9e783c7fdd98a, type: 2}
   m_sharedMaterial: {fileID: 636498962413196681, guid: b727cfd8b2c7e6f488f9e783c7fdd98a, type: 2}
@@ -314,7 +316,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291918708
+    rgba: 4290935682
   m_fontColor: {r: 0.50980395, g: 0.48235297, b: 0.7607844, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -985,7 +987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1042665946
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1969,7 +1971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1839157012
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2805,7 +2807,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291589743
+    rgba: 4290935682
   m_fontColor: {r: 0.50980395, g: 0.48235297, b: 0.7607844, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
