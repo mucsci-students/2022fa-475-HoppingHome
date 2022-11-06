@@ -37,5 +37,12 @@ public class RespawnManager : MonoBehaviour
         {
             heart.respawn();
         }
+
+        CopScript[] cops = FindObjectsOfType(typeof(CopScript)) as CopScript[];
+        foreach (CopScript cop in cops)
+        {
+            cop.respawn();
+            Destroy(cop.gameObject);
+        }
     }
 }
