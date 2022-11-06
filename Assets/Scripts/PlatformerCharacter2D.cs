@@ -6,6 +6,7 @@ namespace UnityStandardAssets._2D
     public class PlatformerCharacter2D : MonoBehaviour
     {
         [SerializeField] public float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
+        private float maxSpeedCopy;
         [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
@@ -52,6 +53,7 @@ namespace UnityStandardAssets._2D
             // Set up player start
             m_Rigidbody2D.position = m_spawn.position;
             startHealth = health;
+            maxSpeedCopy = m_MaxSpeed;
         }
 
         private void FixedUpdate()
@@ -248,6 +250,7 @@ namespace UnityStandardAssets._2D
             m_Rigidbody2D.position = m_spawn.position;
             health = startHealth;
             GetComponent<RespawnManager>().respawn();
+            m_MaxSpeed = maxSpeedCopy;
         }
 
         // Fires a bullet at a given speed, called from character inputs script
