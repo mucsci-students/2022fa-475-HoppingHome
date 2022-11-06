@@ -5,6 +5,7 @@ using UnityStandardAssets._2D;
 
 public class MovingPlatform : MonoBehaviour
 {
+    public bool changeDirections = true;
     public float speed; // speed of the platform
     public int startingPoint; // starting index (pos of platform)
     public Transform[] points; // array of transform points (pos where the platform needs to move)
@@ -32,24 +33,32 @@ public class MovingPlatform : MonoBehaviour
         // Checking the distance of the paltform and the point
         if (Vector2.Distance(transform.position, points[i].position) < 0.02f)
         {
-            // Face diff direction
-            Vector3 theScale = transform.localScale;
-            theScale.x *= -1;
-            transform.localScale = theScale;
             i++;
-            facingRight = !facingRight;
             if (i == points.Length)
-            {
-                i = 0;
-            }
-            if (playerOn)
-            {
-                if (character.m_FacingRight == facingRight)
                 {
-                    character.Flip();
+                    i = 0;
                 }
-                character.m_FacingRight = !character.m_FacingRight;
+                
+            // Face diff direction
+            if (changeDirections == true)
+            {
+                Vector3 theScale = transform.localScale;
+                theScale.x *= -1; 
+                transform.localScale = theScale;
+
+                facingRight = !facingRight;
+                
+                if (playerOn)
+                {
+                    if (character.m_FacingRight == facingRight)
+                    {
+                        character.Flip();
+                    }
+                    character.m_FacingRight = !character.m_FacingRight;
+                }
             }
+
+
         }
 
         // moving the platform to the point pos with index "i"

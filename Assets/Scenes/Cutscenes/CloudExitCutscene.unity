@@ -3519,7 +3519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeTime: 4.6
-  sceneName: Level3(Space)
+  sceneName: SpaceEnterCutscene
 --- !u!4 &2041081531
 Transform:
   m_ObjectHideFlags: 0
