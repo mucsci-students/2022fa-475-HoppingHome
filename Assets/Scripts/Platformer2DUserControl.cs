@@ -107,10 +107,8 @@ namespace UnityStandardAssets._2D
             }
             else if (collision.gameObject.tag == "Kill")
             {
-                if (!invincible)
-                {
-                    m_Character.health = 0;
-                }
+                
+                m_Character.health = 0;
             }
 
             if (m_Character.health <= 0) 
