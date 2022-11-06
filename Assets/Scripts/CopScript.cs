@@ -7,6 +7,7 @@ public class CopScript : MonoBehaviour
 
     public float speed = 3f;
     public int health = 3;
+    private int startHealth;
     public bool angered = false;
     public float detectionRadius = 15f;
     public GameObject player;
@@ -32,6 +33,7 @@ public class CopScript : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
         start = transform;
+        startHealth = health;
         rb2D = GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -118,5 +120,17 @@ public class CopScript : MonoBehaviour
                 //gameObject.SetActive(false);
             }
         }
+    }
+
+    public void respawn()
+    {
+        GameObject newCop = Instantiate(gameObject, start.position, Quaternion.identity);
+        CopScript cs = newCop.GetComponent<CopScript>();
+        cs.health = startHealth;
+        cs.speed = speed;
+        cs.detectionRadius = detectionRadius;
+        cs.bulletCooldown = bulletCooldown;
+        cs.bulletSpeed = bulletSpeed;
+        cs.angered = false;
     }
 }

@@ -36,7 +36,6 @@ namespace UnityStandardAssets._2D
         //private float shieldDummyThickFatmAss = 1000.0f;
 
         public Transform m_spawn;               // For player spawns and checkpoints
-        private bool onBird = false;
 
         private void Awake()
         {
