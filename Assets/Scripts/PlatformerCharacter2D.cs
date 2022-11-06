@@ -251,6 +251,7 @@ namespace UnityStandardAssets._2D
             health = startHealth;
             GetComponent<RespawnManager>().respawn();
             m_MaxSpeed = maxSpeedCopy;
+            GetComponent<Platformer2DUserControl>().respawn();
         }
 
         // Fires a bullet at a given speed, called from character inputs script
