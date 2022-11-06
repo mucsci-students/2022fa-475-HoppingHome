@@ -50,7 +50,6 @@ public class SpeedBoostScript : MonoBehaviour
             if (duration <= 0f)
             {
                 character.m_MaxSpeed = orginalSpeed;
-                gameObject.SetActive(false);
                 totalBar.gameObject.SetActive(false);
                 currentBar.gameObject.SetActive(false);
             }
@@ -67,5 +66,12 @@ public class SpeedBoostScript : MonoBehaviour
             totalBar.gameObject.SetActive(true);
             currentBar.gameObject.SetActive(true);
         }
+    }
+
+    public void respawn()
+    {
+        duration = startDuration;
+        isActivated = false;
+        GetComponent<SpriteRenderer>().enabled = true;
     }
 }
