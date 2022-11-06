@@ -15,6 +15,7 @@ namespace UnityStandardAssets._2D
 
         //Bullet code
         public float bulletCooldown = 0.25f;
+        public float bulletCooldownCopy;
         private float timer = 0f;
         public GameObject bullet;
         public Vector2 bulletSpeed = new Vector2(10f, 0f);
@@ -29,7 +30,10 @@ namespace UnityStandardAssets._2D
         {
             m_Character = GetComponent<PlatformerCharacter2D>();
             source = GetComponent<AudioSource>();
+
             hurt = GetComponent<AudioClip>();
+            bulletCooldownCopy = bulletCooldown;
+
 
             if (shieldImg == null)
             {
@@ -118,6 +122,11 @@ namespace UnityStandardAssets._2D
             {
                 m_Character.respawn();
             }
+        }
+
+        public void respawn()
+        {
+            bulletCooldown = bulletCooldownCopy;
         }
     }
 }

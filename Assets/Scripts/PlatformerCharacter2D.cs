@@ -6,6 +6,7 @@ namespace UnityStandardAssets._2D
     public class PlatformerCharacter2D : MonoBehaviour
     {
         [SerializeField] public float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
+        private float maxSpeedCopy;
         [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
@@ -35,6 +36,7 @@ namespace UnityStandardAssets._2D
         //private float shieldDummyThickFatmAss = 1000.0f;
 
         public Transform m_spawn;               // For player spawns and checkpoints
+        private bool onBird = false;
 
         private void Awake()
         {
@@ -54,6 +56,7 @@ namespace UnityStandardAssets._2D
             startHealth = health;
 
             source = GetComponent<AudioSource>();
+            maxSpeedCopy = m_MaxSpeed;
         }
 
         private void FixedUpdate()
@@ -250,6 +253,8 @@ namespace UnityStandardAssets._2D
             m_Rigidbody2D.position = m_spawn.position;
             health = startHealth;
             GetComponent<RespawnManager>().respawn();
+            m_MaxSpeed = maxSpeedCopy;
+            GetComponent<Platformer2DUserControl>().respawn();
         }
 
         // Fires a bullet at a given speed, called from character inputs script
@@ -260,11 +265,11 @@ namespace UnityStandardAssets._2D
 
             if (m_FacingRight)
             {
-                GameObject temp = Instantiate(bullet, m_Rigidbody2D.transform.localPosition + offsetRight, Quaternion.identity);
+                GameObject temp = Instantiate(bullet, m_Rigidbody2D.transform.position + offsetRight, Quaternion.identity);
                 Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
                 rb.velocity = bulletSpeed;
             } else {
-                GameObject temp = Instantiate(bullet, m_Rigidbody2D.transform.localPosition + offsetLeft, Quaternion.identity);
+                GameObject temp = Instantiate(bullet, m_Rigidbody2D.transform.position + offsetLeft, Quaternion.identity);
                 Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
                 rb.velocity = bulletSpeed * -1f;
             }
