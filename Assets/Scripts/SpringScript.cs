@@ -6,9 +6,12 @@ public class SpringScript : MonoBehaviour
 {
 
     public float jumpForce = 20f;
+    private AudioSource source;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        source = GetComponent<AudioSource>();
+        source.Play();
         if (collision.gameObject.name == "Ziggy")
         {
             Debug.Log("jump");
