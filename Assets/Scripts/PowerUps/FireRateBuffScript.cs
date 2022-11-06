@@ -28,6 +28,14 @@ public class FireRateBuffScript : MonoBehaviour
         {
             character = player.GetComponent<Platformer2DUserControl>();
         }
+        if (totalBar == null)
+        {
+            totalBar = GameObject.Find("fireRateMaxImg").GetComponent<Image>();
+        }
+        if (currentBar == null)
+        {
+            currentBar = GameObject.Find("fireRateCurrImg").GetComponent<Image>();
+        }
         startDuration = duration;
         orginalCooldown = character.bulletCooldown;
     }

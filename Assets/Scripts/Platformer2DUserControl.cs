@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace UnityStandardAssets._2D
 {
@@ -21,6 +22,7 @@ namespace UnityStandardAssets._2D
         public float invincibleLength = 0.25f;
         private float invincibleTimer = 0f;
         public bool invincible = false;
+        public Image shieldImg;
 
 
         private void Awake()
@@ -28,6 +30,11 @@ namespace UnityStandardAssets._2D
             m_Character = GetComponent<PlatformerCharacter2D>();
             source = GetComponent<AudioSource>();
             heal = GetComponent<AudioClip>();
+
+            if (shieldImg == null)
+            {
+                shieldImg = GameObject.Find("ShieldImg").GetComponent<Image>();
+            }
         }
 
 
@@ -58,6 +65,14 @@ namespace UnityStandardAssets._2D
                     invincible = false;
                     invincibleTimer = 0f;
                 }
+            }
+
+            if (invincible)
+            {
+                shieldImg.fillAmount = 1 - (invincibleTimer / invincibleLength);
+            } else
+            {
+                shieldImg.fillAmount = 0;
             }
         }
 
