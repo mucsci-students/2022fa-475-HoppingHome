@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level3(Space).unity
     guid: 7ee25400016784623af88a7fa24daca4
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/SpaceExitCutscene.unity
+    guid: 003572d5afc86e3449e44321370d3f37
   m_configObjects: {}
