@@ -20,5 +20,22 @@ public class RespawnManager : MonoBehaviour
             Destroy(car.gameObject);
         }
 
+        SpeedBoostScript[] sbUps = FindObjectsOfType(typeof(SpeedBoostScript)) as SpeedBoostScript[];
+        foreach (SpeedBoostScript sb in sbUps)
+        {
+            sb.respawn();
+        }
+
+        FireRateBuffScript[] frUps = FindObjectsOfType(typeof(FireRateBuffScript)) as FireRateBuffScript[];
+        foreach (FireRateBuffScript fr in frUps)
+        {
+            fr.respawn();
+        }
+
+        HealthPickUpScript[] healthPU = FindObjectsOfType(typeof(HealthPickUpScript)) as HealthPickUpScript[];
+        foreach (HealthPickUpScript heart in healthPU)
+        {
+            heart.respawn();
+        }
     }
 }

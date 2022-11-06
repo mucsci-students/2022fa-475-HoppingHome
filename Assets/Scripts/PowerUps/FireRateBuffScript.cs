@@ -50,7 +50,6 @@ public class FireRateBuffScript : MonoBehaviour
             if (duration <= 0f)
             {
                 character.bulletCooldown = orginalCooldown;
-                gameObject.SetActive(false);
                 totalBar.gameObject.SetActive(false);
                 currentBar.gameObject.SetActive(false);
             }
@@ -67,5 +66,13 @@ public class FireRateBuffScript : MonoBehaviour
             totalBar.gameObject.SetActive(true);
             currentBar.gameObject.SetActive(true);
         }
+    }
+
+    public void respawn()
+    {
+        Debug.Log("Inside Respawn");
+        duration = startDuration;
+        isActivated = false;
+        GetComponent<SpriteRenderer>().enabled = true;
     }
 }

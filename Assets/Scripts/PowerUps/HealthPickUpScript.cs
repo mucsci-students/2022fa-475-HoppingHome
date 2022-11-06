@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets._2D;
 
 public class HealthPickUpScript : MonoBehaviour
@@ -26,7 +27,12 @@ public class HealthPickUpScript : MonoBehaviour
             character.health += healAmount;
             if (character.health > maxHealth)
                 character.health = maxHealth;
-            gameObject.SetActive(false);
+            GetComponent<SpriteRenderer>().enabled = false;
         }
+    }
+
+    public void respawn()
+    {
+        GetComponent<SpriteRenderer>().enabled = true;
     }
 }
