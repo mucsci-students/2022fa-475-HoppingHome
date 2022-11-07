@@ -1591,7 +1591,7 @@ GameObject:
   - component: {fileID: 574148509}
   - component: {fileID: 574148508}
   m_Layer: 0
-  m_Name: Static Ziggy
+  m_Name: Ziggy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
