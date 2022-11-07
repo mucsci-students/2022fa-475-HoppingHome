@@ -1,5 +1,9 @@
 # <img src="https://user-images.githubusercontent.com/44234583/200206541-dc5dfe75-dc41-41eb-9d23-7b7e0190008f.png" width="600">
 
+A 2D platformer game about an alien named Ziggy, who crash lands onto Earth and is on a mission to get home!
+
+Completed in 3 weeks for the Millersville University CSCI 475 course, Fall 2022. Our 2nd Game. 
+
 ## 👽Downloading
 
 ### 🪐Windows
