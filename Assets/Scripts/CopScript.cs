@@ -12,7 +12,7 @@ public class CopScript : MonoBehaviour
     public float detectionRadius = 15f;
     public GameObject player;
 
-    private Transform start;
+    private Vector3 start;
     private bool isRight = true;
     private Rigidbody2D rb2D;
     private SpriteRenderer sr;
@@ -22,9 +22,10 @@ public class CopScript : MonoBehaviour
     public float bulletSpeed = 1f;
     public float bulletCooldown = 1.00f;
     private float timer = 0f;
+    private float timer2 = 0f;
     private AudioSource source;
 
-    private bool dead = false;
+    public bool dead = false;
 
     private Animator anim;
 
@@ -32,7 +33,7 @@ public class CopScript : MonoBehaviour
     void Start()
     {
         source = GetComponent<AudioSource>();
-        start = transform;
+        start = transform.position;
         startHealth = health;
         rb2D = GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
@@ -46,37 +47,41 @@ public class CopScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!dead)
+        if (timer2 > 1.0f)
         {
-            if (!angered)
+            if (!dead)
             {
-                float curDistance = Vector3.Distance(transform.position, player.transform.position);
-                if (curDistance < detectionRadius)
+                if (!angered)
                 {
-                    angered = true;
-                    anim.SetBool("isMoving", true);
+                    float curDistance = Vector3.Distance(transform.position, player.transform.position);
+                    if (curDistance < detectionRadius)
+                    {
+                        angered = true;
+                        anim.SetBool("isMoving", true);
+                    }
                 }
-            }
-            else
-            {
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), speed * Time.deltaTime);
-
-                if ((isRight && player.transform.position.x < transform.position.x) ||
-                    (!isRight && player.transform.position.x > transform.position.x))
+                else
                 {
-                    flip();
-                }
+                    transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), speed * Time.deltaTime);
 
-                //Shoot
-                if (timer > bulletCooldown)
-                {
-                    fire();
-                    timer = 0f;
-                }
+                    if ((isRight && player.transform.position.x < transform.position.x) ||
+                        (!isRight && player.transform.position.x > transform.position.x))
+                    {
+                        flip();
+                    }
 
-                timer += Time.deltaTime;
+                    //Shoot
+                    if (timer > bulletCooldown)
+                    {
+                        fire();
+                        timer = 0f;
+                    }
+
+                    timer += Time.deltaTime;
+                }
             }
         }
+        timer2 += Time.deltaTime;
     }
 
     private void flip()
@@ -112,19 +117,22 @@ public class CopScript : MonoBehaviour
         if (col.gameObject.tag == "Damage")
         {
             --health;
-            Destroy(col.gameObject);
             if (health <= 0)
             {
                 anim.Play("Death");
                 dead = true;
+                GetComponent<Collider2D>().enabled = false;
                 //gameObject.SetActive(false);
+            } else
+            {
+                Destroy(col.gameObject);
             }
         }
     }
 
     public void respawn()
     {
-        GameObject newCop = Instantiate(gameObject, start.position, Quaternion.identity);
+        GameObject newCop = Instantiate(gameObject, start, Quaternion.identity);
         CopScript cs = newCop.GetComponent<CopScript>();
         cs.health = startHealth;
         cs.speed = speed;
@@ -132,5 +140,6 @@ public class CopScript : MonoBehaviour
         cs.bulletCooldown = bulletCooldown;
         cs.bulletSpeed = bulletSpeed;
         cs.angered = false;
+        cs.GetComponent<Collider2D>().enabled = true;
     }
 }

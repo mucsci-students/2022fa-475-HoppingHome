@@ -130,6 +130,7 @@ MonoBehaviour:
   bullet: {fileID: 795070190496731840, guid: 5d0be5eb475c7a146a46005a26549e4f, type: 3}
   bulletSpeed: 10
   bulletCooldown: 1
+  dead: 0
 --- !u!61 &2834978620088127904
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -190,8 +191,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000059604645, y: -0.051144436}
-  m_Size: {x: 0.14738739, y: 0.21771112}
+  m_Offset: {x: -0.0013458282, y: -0.13565578}
+  m_Size: {x: 0.045996755, y: 0.04868844}
   m_Direction: 0
 --- !u!82 &1647385275880627786
 AudioSource:
