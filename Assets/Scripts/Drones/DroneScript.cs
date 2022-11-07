@@ -61,7 +61,10 @@ public class DroneScript : MonoBehaviour
                 if ((isRight && transform.position.x >= rb) ||
                     (!isRight && transform.position.x <= lb))
                 {
-                    flip();
+                    if (transform.eulerAngles == Vector3.zero)
+                    {
+                        flip();
+                    }
                 }
                 if (isRight)
                 {
@@ -83,11 +86,14 @@ public class DroneScript : MonoBehaviour
                 if ((isRight && transform.position.x > player.transform.position.x + xOffSet) ||
                     (!isRight && transform.position.x < player.transform.position.x + xOffSet))
                 {
-                    flip();
+                    if (transform.eulerAngles == Vector3.zero)
+                    {
+                        flip();
+                    }
                 }
 
                 //Shoot
-                if (timer > bulletCooldown)
+                if (timer > bulletCooldown && Vector3.Distance(player.transform.position, transform.position) < 20f)
                 {
                     fire();
                     timer = 0f;
