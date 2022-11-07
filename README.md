@@ -8,7 +8,7 @@ Completed in 3 weeks for the Millersville University CSCI 475 course, Fall 2022.
 
 ### 🪐Windows
 
-1. [Download the .zip file](-)
+1. [Download the .zip file](https://drive.google.com/file/d/1vbjxAxCJ3atHWCjJNISv3ACXBvZzBta5/view?usp=sharing)
 2. Unzip the file through file explorer
 3. Run HoppingHome.exe by double clicking
 4. Enjoy!
