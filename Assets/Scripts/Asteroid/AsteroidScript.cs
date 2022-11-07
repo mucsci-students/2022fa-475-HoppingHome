@@ -38,7 +38,7 @@ public class AsteroidScript : MonoBehaviour
                 float curDistance = Vector3.Distance(bulletPos, player.transform.position);
                 if (curDistance > despawnDistance)
                 {
-                    Destroy(gameObject);
+                    //Destroy(gameObject);
                 }
             }
             else

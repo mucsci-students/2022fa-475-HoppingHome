@@ -51,5 +51,12 @@ public class RespawnManager : MonoBehaviour
             ass.respawn();
             Destroy(ass.gameObject);
         }
+
+        BigAsteroidScript[] bigAsteroids = FindObjectsOfType(typeof(BigAsteroidScript)) as BigAsteroidScript[];
+        foreach (BigAsteroidScript ass in bigAsteroids)
+        {
+            ass.respawn();
+            Destroy(ass.gameObject);
+        }
     }
 }
