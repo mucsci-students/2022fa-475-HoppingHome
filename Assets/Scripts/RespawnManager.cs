@@ -44,5 +44,12 @@ public class RespawnManager : MonoBehaviour
             cop.respawn();
             Destroy(cop.gameObject);
         }
+
+        AsteroidScript[] asteroids = FindObjectsOfType(typeof(AsteroidScript)) as AsteroidScript[];
+        foreach (AsteroidScript ass in asteroids)
+        {
+            ass.respawn();
+            Destroy(ass.gameObject);
+        }
     }
 }

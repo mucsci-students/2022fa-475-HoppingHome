@@ -107,7 +107,7 @@ namespace UnityStandardAssets._2D
                     hurt = source.clip;
                     source.PlayOneShot(hurt);
 
-                    m_Character.m_Anim.SetTrigger("Flinch");
+                    m_Character.m_Anim.SetTrigger("TakeDamage");
                     m_Character.health--;
                     invincible = true;
                 }
