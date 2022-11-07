@@ -71,7 +71,7 @@ public class CopScript : MonoBehaviour
                     }
 
                     //Shoot
-                    if (timer > bulletCooldown)
+                    if (timer > bulletCooldown && Vector3.Distance(player.transform.position, transform.position) < 20f)
                     {
                         fire();
                         timer = 0f;
@@ -140,6 +140,7 @@ public class CopScript : MonoBehaviour
         cs.bulletCooldown = bulletCooldown;
         cs.bulletSpeed = bulletSpeed;
         cs.angered = false;
+        cs.dead = false;
         cs.GetComponent<Collider2D>().enabled = true;
     }
 }
